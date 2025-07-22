@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background" android:fillViewport="true"
+    tools:context=".AnimeDetailActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="30dp">
+
+        <ImageView
+            android:id="@+id/customBackButton"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_back_btn"
+            android:scaleType="fitCenter"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            app:tint="@color/blue"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="40dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="Back" />
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewAnimeImage"
+            android:layout_width="162dp"
+            android:layout_height="215dp"
+            android:layout_marginTop="8dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="8dp"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/customBackButton">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/detailAnimeImageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/anime1"
+                app:shapeAppearanceOverlay="@style/RoundedImageView" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/detailAnimeTitleTextView"
+            android:layout_width="0dp"                 android:layout_height="wrap_content"
+            android:gravity="center_horizontal"       android:text="Shouwa Genroku Rakugo Shinjuu" android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="2dp"
+            app:layout_constraintTop_toBottomOf="@id/cardViewAnimeImage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5" />
+
+        <TextView
+            android:id="@+id/detailAnimeGenreTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:paddingBottom="6dp"
+            android:text="Action"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@id/detailAnimeTitleTextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/synopsisTitleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Synopsis"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="32dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintTop_toBottomOf="@id/detailAnimeGenreTextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/detailAnimeDescriptionTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="A former convict becomes a rakugo performer, diving into the emotional stories and struggles of his mentor's past."
+            android:textSize="16sp"
+            android:textColor="@android:color/black"
+            android:lineSpacingExtra="4dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintTop_toBottomOf="@id/synopsisTitleTextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnReview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="REVIEW"
+            android:backgroundTint="@color/blue"
+            android:textColor="@android:color/white"
+            android:padding="12dp"
+            android:textSize="18sp"
+            app:cornerRadius="10dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            app:layout_constraintTop_toBottomOf="@id/detailAnimeDescriptionTextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

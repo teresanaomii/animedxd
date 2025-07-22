@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center_horizontal"
+    android:background="@drawable/rounded_popup_bg">
+
+    <!-- Close Button -->
+    <ImageView
+        android:id="@+id/btnCloseReviewDialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_close"
+        android:layout_gravity="end"
+        android:padding="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:contentDescription="Close review dialog" />
+
+    <!-- Title -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Review"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="25dp" />
+
+    <!-- Review Input -->
+    <EditText
+        android:id="@+id/etReviewInput"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@drawable/rounded_review_bg"
+        android:hint="Input Your Review"
+        android:gravity="top"
+        android:padding="12dp"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Warning Text (space reserved to prevent SEND from shifting) -->
+    <TextView
+        android:id="@+id/tvReviewWarning"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="*Review field cannot be empty"
+        android:textColor="@color/red"
+        android:textSize="14sp"
+        android:visibility="invisible"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Send Button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSendReview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SEND"
+        android:backgroundTint="@color/blue"
+        android:textColor="@android:color/white"
+        android:padding="12dp"
+        android:textSize="18sp"
+        android:layout_marginTop="8dp"
+        app:cornerRadius="10dp" />
+
+    <!-- Success Message -->
+    <TextView
+        android:id="@+id/tvReviewSuccessMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Thank you for your review!"
+        android:textColor="@android:color/black"
+        android:textSize="14sp"
+        android:layout_marginTop="16dp"
+        android:visibility="visible" />
+
+</LinearLayout>
