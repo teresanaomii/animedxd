@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (savedInstanceState == null) {
             loadFragment(new HomeFragment());
+            binding.bottomNavigationView.setSelectedItemId(R.id.home);
         }
 
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
