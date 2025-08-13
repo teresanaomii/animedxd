@@ -2,33 +2,47 @@ package com.wesleyaldrich.animedxd;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class AnimeListActivity extends AppCompatActivity implements ListAnimeAdapter.OnItemClickListener {
+public class ListFragment extends Fragment implements ListAnimeAdapter.OnItemClickListener {
+
+    private ListAnimeAdapter adapter;
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
+        // Inflate the layout for this fragment.
+        return inflater.inflate(R.layout.fragment_list, container, false);
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_anime_list);
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
-        RecyclerView animeRecyclerView = findViewById(R.id.animeRecyclerView);
-        animeRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        RecyclerView animeRecyclerView = view.findViewById(R.id.animeRecyclerView);
+        animeRecyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
 
         List<AnimeList> animeList = generateAnimeList();
 
-        ListAnimeAdapter adapter = new ListAnimeAdapter(animeList, this);
+        adapter = new ListAnimeAdapter(animeList, this);
         animeRecyclerView.setAdapter(adapter);
     }
 
     @Override
     public void onItemClick(AnimeList anime) {
-        Intent intent = new Intent(AnimeListActivity.this, AnimeDetailActivity.class);
+        Intent intent = new Intent(requireContext(), AnimeDetailActivity.class);
 
         intent.putExtra(AnimeDetailActivity.EXTRA_ANIME_TITLE, anime.getTitle());
         intent.putExtra(AnimeDetailActivity.EXTRA_ANIME_SYNOPSIS, anime.getSynopsis());
@@ -37,7 +51,6 @@ public class AnimeListActivity extends AppCompatActivity implements ListAnimeAda
 
         startActivity(intent);
     }
-
 
     private List<AnimeList> generateAnimeList() {
         List<AnimeList> list = new ArrayList<>();
