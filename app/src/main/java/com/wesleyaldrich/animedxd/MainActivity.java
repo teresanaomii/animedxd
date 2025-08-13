@@ -29,6 +29,18 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        Intent intent = getIntent();
+
+        if (intent != null) {
+            String username = intent.getStringExtra("EXTRA_USERNAME");
+            if (username != null) {
+                TextView userNameTextView = findViewById(R.id.userNameTextView);
+                if (userNameTextView != null) {
+                    userNameTextView.setText(username);
+                }
+            }
+        }
+
         if (savedInstanceState == null) {
             loadFragment(new HomeFragment());
             binding.bottomNavigationView.setSelectedItemId(R.id.home);
