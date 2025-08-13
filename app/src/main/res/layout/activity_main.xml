@@ -25,8 +25,7 @@
             app:cardCornerRadius="25dp"
             app:cardElevation="4dp"
             app:strokeColor="@color/white"
-            app:strokeWidth="2dp"
-            >
+            app:strokeWidth="2dp">
 
             <ImageView
                 android:id="@+id/profileImage"

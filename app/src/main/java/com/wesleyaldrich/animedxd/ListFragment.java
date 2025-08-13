@@ -1,64 +1,133 @@
 package com.wesleyaldrich.animedxd;
 
+import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ListFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class ListFragment extends Fragment {
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+import java.util.ArrayList;
+import java.util.List;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+public class ListFragment extends Fragment implements ListAnimeAdapter.OnItemClickListener {
 
-    public ListFragment() {
-        // Required empty public constructor
-    }
+    private ListAnimeAdapter adapter;
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ListFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static ListFragment newInstance(String param1, String param2) {
-        ListFragment fragment = new ListFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
+    @Nullable
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
+        // Inflate the layout for this fragment.
         return inflater.inflate(R.layout.fragment_list, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        RecyclerView animeRecyclerView = view.findViewById(R.id.animeRecyclerView);
+        animeRecyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
+
+        List<AnimeList> animeList = generateAnimeList();
+
+        adapter = new ListAnimeAdapter(animeList, this);
+        animeRecyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public void onItemClick(AnimeList anime) {
+        Intent intent = new Intent(requireContext(), AnimeDetailActivity.class);
+
+        intent.putExtra(AnimeDetailActivity.EXTRA_ANIME_TITLE, anime.getTitle());
+        intent.putExtra(AnimeDetailActivity.EXTRA_ANIME_SYNOPSIS, anime.getSynopsis());
+        intent.putExtra(AnimeDetailActivity.EXTRA_ANIME_GENRE, anime.getGenre());
+        intent.putExtra(AnimeDetailActivity.EXTRA_ANIME_IMAGE, anime.getImageUrl());
+
+        startActivity(intent);
+    }
+
+    private List<AnimeList> generateAnimeList() {
+        List<AnimeList> list = new ArrayList<>();
+
+        list.add(
+                new AnimeList(
+                        "Akudama Drive",
+                        "A former convict becomes a rakugo performer, diving into the emotional stories and struggles of his mentor's past.",
+                        "Action",
+                        R.drawable.anime1
+                )
+        );
+        list.add(
+                new AnimeList(
+                        "Shouwa Genroku Rakugo Shinjuu",
+                        "A former convict becomes a rakugo performer, diving into the emotional stories and struggles of his mentor's past.",
+                        "Drama",
+                        R.drawable.anime2
+                )
+        );
+        list.add(
+                new AnimeList(
+                        "Haven't You Heard? I'm Sakamoto",
+                        "Sakamoto is the coolest and most perfect high school student ever – and everything he does is effortlessly stylish and absurdly funny.",
+                        "Comedy",
+                        R.drawable.anime3
+                )
+        );
+        list.add(
+                new AnimeList(
+                        "Tsuki ga Kirei",
+                        "A shy middle school boy and girl fall in love for the first time and navigate their feelings with awkwardness and sincerity.",
+                        "Fantasy",
+                        R.drawable.anime4
+                )
+        );
+        list.add(
+                new AnimeList(
+                        "Shiki",
+                        "In a quiet village, people begin dying mysteriously. A doctor and a teenager uncover a terrifying truth — the undead have arrived.",
+                        "Mecha",
+                        R.drawable.anime5
+                )
+        );
+        list.add(
+                new AnimeList(
+                        "Kaiji: Ultimate Survivor",
+                        "A down-on-his-luck man is dragged into underground gambling where he must use his wits to survive life-threatening games of deception.",
+                        "Sci-Fi",
+                        R.drawable.anime6
+                )
+        );
+        list.add(
+                new AnimeList(
+                        "Silver Spoon (Gin no Saji)",
+                        "A city boy enrolls in an agricultural school and experiences the challenges of farming life, hard work, and self-discovery.",
+                        "Action",
+                        R.drawable.anime7
+                )
+        );
+        list.add(
+                new AnimeList(
+                        "Run with the Wind",
+                        "A group of college students with little experience train together to run the famous Hakone Ekiden marathon.",
+                        "Romance",
+                        R.drawable.anime8
+                )
+        );
+        list.add(
+                new AnimeList(
+                        "Mononoke",
+                        "A mysterious medicine seller travels across Japan, exorcising malevolent spirits by uncovering their Form, Truth, and Reason.",
+                        "Drama",
+                        R.drawable.anime9
+                )
+        );
+
+        return list;
     }
 }
