@@ -72,22 +72,6 @@
 
     </LinearLayout>
 
-<!--    <TextView-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Home"-->
-<!--        android:textSize="20sp"-->
-<!--        android:textStyle="bold"-->
-<!--        android:layout_marginBottom="32dp"/>-->
-
-<!--    <Button-->
-<!--        android:id="@+id/btnOpenAnimeList"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="List Anime"-->
-<!--        android:padding="16dp"-->
-<!--        android:textSize="18sp"/>-->
-
     <FrameLayout
         android:id="@+id/frame_layout"
         android:layout_width="0dp"

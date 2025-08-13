@@ -49,33 +49,26 @@ public class MainActivity extends AppCompatActivity {
             return false;
         });
 
-        // Listener untuk tombol hamburger menu
         binding.menuHamburger.setOnClickListener(view -> {
             showLogoutPopup();
         });
     }
 
     private void showLogoutPopup() {
-        // Inflate layout untuk popup
         View popupView = getLayoutInflater().inflate(R.layout.pop_up_logout, null);
 
-        // Buat instance PopupWindow
         final PopupWindow popupWindow = new PopupWindow(popupView,
                 ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT,
-                true); // 'true' agar popup bisa ditutup dengan menekan di luar area popup
+                true);
 
-        // Temukan tombol logout di dalam layout popup
         TextView btnLogout = popupView.findViewById(R.id.btn_logout);
 
-        // Aksi saat tombol logout di dalam popup diklik
         btnLogout.setOnClickListener(v -> {
             performLogout();
-            popupWindow.dismiss(); // Tutup popup setelah aksi
+            popupWindow.dismiss();
         });
 
-        // Tampilkan popup di bawah tombol hamburger dengan offset
-        // Sesuaikan offset agar posisinya pas
         binding.menuHamburger.setColorFilter(ContextCompat.getColor(MainActivity.this, R.color.blue));
         popupWindow.showAsDropDown(binding.menuHamburger, 0, 0);
     }
