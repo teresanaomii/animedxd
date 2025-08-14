@@ -70,6 +70,10 @@ public class MainActivity extends AppCompatActivity {
             popupWindow.dismiss();
         });
 
+        popupWindow.setOnDismissListener(() -> {
+            binding.menuHamburger.setColorFilter(null);
+        });
+
         binding.menuHamburger.setColorFilter(ContextCompat.getColor(MainActivity.this, R.color.blue));
         popupWindow.showAsDropDown(binding.menuHamburger, 0, 0);
     }
