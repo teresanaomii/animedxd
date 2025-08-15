@@ -26,40 +26,41 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:layout_marginStart="16dp">
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/animeTitleTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
                 android:text="Akudama Drive"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@android:color/black" />
+                android:textColor="@android:color/black"
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/animeDescriptionTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:text="A former convict becomes a rakugo performer, diving into the emotional stories and struggles of his mentor's past."
-                android:textSize="14sp"
+                android:ellipsize="end"
+                android:fontFamily="@font/poppins_regular"
                 android:maxLines="4"
-                android:ellipsize="end" />
+                android:text="A former convict becomes a rakugo performer, diving into the emotional stories and struggles of his mentor's past."
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/animeGenreTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="110dp"
+                android:layout_height="25dp"
                 android:layout_marginTop="8dp"
+                android:background="@drawable/list_anime_background"
+                android:fontFamily="@font/poppins_semi_bold"
+                android:gravity="center"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
-                android:paddingTop="4dp"
-                android:paddingBottom="4dp"
-                android:background="@drawable/list_anime_background"
-                android:text="Action"
+                android:text="Psychologycal"
                 android:textColor="@android:color/black"
                 android:textSize="12sp" />
 

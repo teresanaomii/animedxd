@@ -83,7 +83,7 @@ public class ListFragment extends Fragment implements ListAnimeAdapter.OnItemCli
                 new AnimeList(
                         "Tsuki ga Kirei",
                         "A shy middle school boy and girl fall in love for the first time and navigate their feelings with awkwardness and sincerity.",
-                        "Fantasy",
+                        "Romance",
                         R.drawable.anime4
                 )
         );
@@ -91,7 +91,7 @@ public class ListFragment extends Fragment implements ListAnimeAdapter.OnItemCli
                 new AnimeList(
                         "Shiki",
                         "In a quiet village, people begin dying mysteriously. A doctor and a teenager uncover a terrifying truth — the undead have arrived.",
-                        "Mecha",
+                        "Horror",
                         R.drawable.anime5
                 )
         );
@@ -99,7 +99,7 @@ public class ListFragment extends Fragment implements ListAnimeAdapter.OnItemCli
                 new AnimeList(
                         "Kaiji: Ultimate Survivor",
                         "A down-on-his-luck man is dragged into underground gambling where he must use his wits to survive life-threatening games of deception.",
-                        "Sci-Fi",
+                        "Psychological",
                         R.drawable.anime6
                 )
         );
@@ -107,7 +107,7 @@ public class ListFragment extends Fragment implements ListAnimeAdapter.OnItemCli
                 new AnimeList(
                         "Silver Spoon (Gin no Saji)",
                         "A city boy enrolls in an agricultural school and experiences the challenges of farming life, hard work, and self-discovery.",
-                        "Action",
+                        "Slice of Life",
                         R.drawable.anime7
                 )
         );
@@ -115,7 +115,7 @@ public class ListFragment extends Fragment implements ListAnimeAdapter.OnItemCli
                 new AnimeList(
                         "Run with the Wind",
                         "A group of college students with little experience train together to run the famous Hakone Ekiden marathon.",
-                        "Romance",
+                        "Sports",
                         R.drawable.anime8
                 )
         );
@@ -123,7 +123,7 @@ public class ListFragment extends Fragment implements ListAnimeAdapter.OnItemCli
                 new AnimeList(
                         "Mononoke",
                         "A mysterious medicine seller travels across Japan, exorcising malevolent spirits by uncovering their Form, Truth, and Reason.",
-                        "Drama",
+                        "Supernatural",
                         R.drawable.anime9
                 )
         );
