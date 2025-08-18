@@ -58,7 +58,7 @@ public class ListFragment extends Fragment implements ListAnimeAdapter.OnItemCli
         list.add(
                 new AnimeList(
                         "Akudama Drive",
-                        "A former convict becomes a rakugo performer, diving into the emotional stories and struggles of his mentor's past.",
+                        "In a dystopian cyberpunk city, a group of notorious criminals known as “Akudama” are caught in high-stakes missions and intense chases.",
                         "Action",
                         R.drawable.anime1
                 )
